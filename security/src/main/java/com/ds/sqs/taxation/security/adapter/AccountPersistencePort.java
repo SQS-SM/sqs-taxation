@@ -15,4 +15,6 @@ public interface AccountPersistencePort {
     Optional<AccountDto> findByGuid(UUID guid);
 
     List<AccountDto> findAll();
+
+    void deleteById(Long id);
 }

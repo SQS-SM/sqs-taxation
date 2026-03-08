@@ -10,4 +10,10 @@ public interface CompanyService {
     CompanyDto getById(Long id);
 
     List<CompanyDto> findAll();
+
+    List<CompanyDto> findByOrganisationId(Long organisationId);
+
+    CompanyDto update(Long id, CompanyDto dto);
+
+    void delete(Long id);
 }

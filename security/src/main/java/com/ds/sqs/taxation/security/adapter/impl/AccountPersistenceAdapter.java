@@ -39,4 +39,9 @@ public class AccountPersistenceAdapter implements AccountPersistencePort {
         return repository.findAll().stream()
                 .map(mapper::toDto).toList();
     }
+
+    @Override
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
 }

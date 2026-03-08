@@ -15,4 +15,6 @@ public interface OrganisationPersistencePort {
     Optional<OrganisationDto> findByGuid(UUID guid);
 
     List<OrganisationDto> findAll();
+
+    void deleteById(Long id);
 }

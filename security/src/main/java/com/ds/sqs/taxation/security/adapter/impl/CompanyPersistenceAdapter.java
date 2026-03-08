@@ -41,4 +41,16 @@ public class CompanyPersistenceAdapter implements CompanyPersistencePort {
         return repository.findAll().stream()
                 .map(mapper::toDto).toList();
     }
+
+    @Override
+    public List<CompanyDto> findByOrganisationId(Long organisationId) {
+        return repository.findByOrganisationId(organisationId).stream()
+                .map(mapper::toDto)
+                .toList();
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
 }

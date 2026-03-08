@@ -29,7 +29,41 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public CompanyDto create(CompanyDto dto) {
+        return mapAndSave(dto);
+    }
 
+    @Override
+    public CompanyDto getById(Long id) {
+        return persistencePort.findById(id)
+                .orElseThrow(() -> new RuntimeException("Company not found"));
+    }
+
+    @Override
+    public List<CompanyDto> findAll() {
+        return persistencePort.findAll()
+                .stream()
+                .toList();
+    }
+
+    @Override
+    public List<CompanyDto> findByOrganisationId(Long organisationId) {
+        return persistencePort.findByOrganisationId(organisationId);
+    }
+
+    @Override
+    public CompanyDto update(Long id, CompanyDto dto) {
+        getById(id);
+        dto.setId(id);
+        return mapAndSave(dto);
+    }
+
+    @Override
+    public void delete(Long id) {
+        getById(id);
+        persistencePort.deleteById(id);
+    }
+
+    private CompanyDto mapAndSave(CompanyDto dto) {
         Company company = mapper.toEntity(dto);
 
         Organisation organisation =
@@ -60,20 +94,5 @@ public class CompanyServiceImpl implements CompanyService {
         }
 
         return persistencePort.save(company);
-    }
-
-    @Override
-    public CompanyDto getById(Long id) {
-
-        return persistencePort.findById(id)
-                .orElseThrow(() -> new RuntimeException("Company not found"));
-    }
-
-    @Override
-    public List<CompanyDto> findAll() {
-
-        return persistencePort.findAll()
-                .stream()
-                .toList();
     }
 }

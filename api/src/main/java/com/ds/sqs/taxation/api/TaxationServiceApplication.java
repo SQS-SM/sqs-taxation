@@ -2,12 +2,12 @@ package com.ds.sqs.taxation.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.ds.sqs.taxation.common", "com.ds.sqs.taxation.api"})
+@EnableCaching
+@ComponentScan(basePackages = {"com.ds.sqs.taxation"})
 public class TaxationServiceApplication {
 
     public static void main(String[] args) {

@@ -16,4 +16,8 @@ public interface CompanyPersistencePort {
     Optional<CompanyDto> findByGuid(UUID guid);
 
     List<CompanyDto> findAll();
+
+    List<CompanyDto> findByOrganisationId(Long organisationId);
+
+    void deleteById(Long id);
 }
