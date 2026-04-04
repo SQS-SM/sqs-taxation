@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class AllowanceTypeDto {
 
-    private Integer allowanceTypeId;
+    private Integer id;
     private AllowanceCode allowanceCode;
     private String irp5Code;
     private String description;

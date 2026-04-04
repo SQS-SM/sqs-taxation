@@ -37,6 +37,7 @@
         <springdoc.database.postgresql.version>12.0.1</springdoc.database.postgresql.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <mapstruct.processor.version>1.5.5.Final</mapstruct.processor.version>
+        <lombok.version>1.18.32</lombok.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -104,6 +105,11 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.ds.sqs.taxation</groupId>
+                <artifactId>payroll</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct</artifactId>
                 <version>${mapstruct.version}</version>
@@ -128,8 +134,35 @@
     </dependencyManagement>
 
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.11.0</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>${lombok.version}</version>
+                            </path>
+                            <path>
+                                <groupId>org.mapstruct</groupId>
+                                <artifactId>mapstruct-processor</artifactId>
+                                <version>${mapstruct.processor.version}</version>
+                            </path>
+                        </annotationProcessorPaths>
+                    </configuration>
+                </plugin>
                 <!-- Flyway plugin available to all modules -->
                 <plugin>
                     <groupId>org.flywaydb</groupId>

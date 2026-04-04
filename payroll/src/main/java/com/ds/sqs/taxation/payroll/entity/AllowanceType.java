@@ -14,7 +14,7 @@ public class AllowanceType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int allowanceTypeId;
+    private int id;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = true)

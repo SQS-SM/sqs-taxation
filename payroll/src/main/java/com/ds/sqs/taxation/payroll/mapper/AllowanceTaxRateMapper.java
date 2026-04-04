@@ -8,8 +8,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface AllowanceTaxRateMapper {
 
-    @Mapping(source="allowanceType.allowanceTypeId",
-            target="allowanceTypeId")
     AllowanceTaxRateDto toDto(AllowanceTaxRate entity);
 
     @Mapping(target="allowanceType", ignore=true)

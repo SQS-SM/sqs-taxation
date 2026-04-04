@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Data
 public class AllowanceTaxRateDto {
 
-    private Integer allowanceTaxRateId;
+    private Long id;
     private Integer allowanceTypeId;
     private String taxYear;
     private BigDecimal taxablePortionPercentage;

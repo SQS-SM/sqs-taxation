@@ -27,14 +27,30 @@ public class AuthorizationFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        String path = request.getRequestURI();
+        String path = getPathWithoutContext(request);
         String method = request.getMethod();
 
         if ("OPTIONS".equalsIgnoreCase(method)) {
             return true;
         }
 
-        if (path.startsWith("/api/v1/provinces")) {
+        if (path.equals("/error")
+                || path.equals("/health")
+                || path.equals("/info")
+                || path.startsWith("/actuator")
+                || path.equals("/swagger-ui.html")
+                || path.startsWith("/swagger-ui")
+                || path.startsWith("/v3/api-docs")) {
+            return true;
+        }
+
+        if (path.startsWith("/api/v1/provinces") ||
+                path.startsWith("/api/v1/countries") ||
+                path.startsWith("/api/v1/accounts") ||
+                ((path.startsWith("/api/v1/companies") ||
+                        path.startsWith("/api/v1/organizations") ||
+                        path.startsWith("/api/v1/employees")))
+        ) {
             return true;
         }
 
@@ -77,5 +93,14 @@ public class AuthorizationFilter extends OncePerRequestFilter {
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.getWriter().write("{\"error\":\"" + message + "\"}");
+    }
+
+    private String getPathWithoutContext(HttpServletRequest request) {
+        String uri = request.getRequestURI();
+        String context = request.getContextPath();
+        if (context != null && !context.isBlank() && uri.startsWith(context)) {
+            return uri.substring(context.length());
+        }
+        return uri;
     }
 }

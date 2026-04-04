@@ -44,6 +44,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
 
         <!-- PostgreSQL -->
         <dependency>
@@ -99,6 +103,10 @@
         <dependency>
             <groupId>com.ds.sqs.taxation</groupId>
             <artifactId>employee</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ds.sqs.taxation</groupId>
+            <artifactId>payroll</artifactId>
         </dependency>
 
         <dependency>

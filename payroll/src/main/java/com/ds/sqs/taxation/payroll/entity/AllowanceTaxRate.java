@@ -15,7 +15,7 @@ public class AllowanceTaxRate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int allowanceTaxRateId;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "allowance_type_id", nullable = false)

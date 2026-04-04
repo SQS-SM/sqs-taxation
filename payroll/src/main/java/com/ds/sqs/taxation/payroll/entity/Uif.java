@@ -10,12 +10,7 @@ import java.time.LocalDate;
 public class Uif {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "uif_seq")
-    @SequenceGenerator(
-            name = "uif_seq",
-            sequenceName = "sars.uif_id_seq",
-            allocationSize = 1
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "effective_from", nullable = false)
@@ -41,7 +36,7 @@ public class Uif {
 
     /* ===== Constructors ===== */
 
-    protected Uif() {
+    public Uif() {
         // JPA only
     }
 

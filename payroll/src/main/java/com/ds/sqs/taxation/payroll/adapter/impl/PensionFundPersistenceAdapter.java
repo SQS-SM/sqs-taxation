@@ -6,6 +6,9 @@ import com.ds.sqs.taxation.payroll.entity.PensionFund;
 import com.ds.sqs.taxation.payroll.mapper.PensionFundMapper;
 import com.ds.sqs.taxation.payroll.repository.PensionFundRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -19,21 +22,29 @@ public class PensionFundPersistenceAdapter implements PensionFundPersistencePort
     private final PensionFundMapper mapper;
 
     @Override
+    @Caching(evict = {
+            @CacheEvict(cacheNames = "pensionFundById", allEntries = true),
+            @CacheEvict(cacheNames = "pensionFundByTaxYear", allEntries = true),
+            @CacheEvict(cacheNames = "pensionFundAll", allEntries = true)
+    })
     public PensionFundDto save(PensionFund entity) {
         return mapper.toDto(repository.save(entity));
     }
 
     @Override
+    @Cacheable(cacheNames = "pensionFundById", key = "#id")
     public Optional<PensionFundDto> findById(Integer id) {
         return repository.findById(id).map(mapper::toDto);
     }
 
     @Override
+    @Cacheable(cacheNames = "pensionFundByTaxYear", key = "#taxYear")
     public Optional<PensionFundDto> findByTaxYear(String taxYear) {
         return repository.findByTaxYear(taxYear).map(mapper::toDto);
     }
 
     @Override
+    @Cacheable(cacheNames = "pensionFundAll", key = "'all'")
     public List<PensionFundDto> findAll() {
         return repository.findAll()
                 .stream()
