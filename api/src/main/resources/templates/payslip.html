@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        @font-face {
+            font-family: 'noto';
+            /* Note: No trailing format tag is allowed. */
+            src: url(fonts/NotoSerif-Regular.ttf);
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'noto';
+            src: url(fonts/NotoSerif-Bold.ttf);
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'noto';
+            src: url(fonts/NotoSerif-BoldItalic.ttf);
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'noto';
+            src: url(fonts/NotoSerif-Italic.ttf);
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        .noto {
+            font-family: 'noto', serif;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        .header {
+            text-align: left;
+            margin-bottom: 0px;
+            padding-left: 10px;
+        }
+
+        .header-logo {
+            margin-top: -20px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-top: 20px;
+            border-bottom: 1px solid #000;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .net-pay {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        #columns {
+            column-count: 2;
+            gap: 40px;
+        }
+
+        .column {
+            flex: 1;
+        }
+
+        .no-border {
+            border: none;
+            border-collapse: collapse;
+        }
+
+        .no-border td,
+        .no-border th {
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2>BBD Payslip</h2>
+    <div class="header-logo">
+        <img src="queAds-logo.png" width="80" height="80"/>
+    </div>
+</div>
+
+<table style="width:100%;" class="no-border">
+    <tr>
+        <td style="width:50%;">
+            <table style="width:100%;">
+                <tr>
+                    <td style="width:50%;">
+                        <strong>Employee:</strong>
+                    </td>
+                    <td>
+                        Mr Q Molefe
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:50%; vertical-align: top;">
+                        <strong>Employee Code:</strong>
+                    </td>
+                    <td> 1168</td>
+                </tr>
+                <tr>
+                    <td style="width:50%; vertical-align: top;">
+                        <strong>ID Number:</strong>
+                    </td>
+                    <td> 8001015009087</td>
+                </tr>
+                <tr>
+                    <td style="width:50%; vertical-align: top;">
+                        <strong>Employee Address:</strong>
+                    </td>
+                    <td> 03 Sonwaba</td>
+                </tr>
+                <tr>
+                    <td style="width:50%; vertical-align: top;">
+                        <strong></strong>
+                    </td>
+                    <td>Oklahoma Ave</td>
+                </tr>
+                <tr>
+                    <td style="width:50%; vertical-align: top;">
+                        <strong></strong>
+                    </td>
+                    <td>Cosmo City Randburg</td>
+                </tr>
+                <tr>
+                    <td style="width:50%; vertical-align: top;">
+                        <strong>Date Engaged:</strong>
+                    </td>
+                    <td>2016/12/08</td>
+                </tr>
+                <tr>
+                    <td style="width:50%; vertical-align: top;">
+                        <strong>Job Title:</strong>
+                    </td>
+                    <td>Software Engineer</td>
+                </tr>
+            </table>
+        </td>
+
+        <td style="width:50%; vertical-align: top;">
+
+            <table style="width:100%;">
+                <tr>
+                    <td><strong>Gross Salary:</strong></td>
+                    <td>124 000.00</td>
+                </tr>
+                <tr>
+                    <td><strong>Pay Period:</strong></td>
+                    <td>2025/04/30</td>
+                </tr>
+                <tr>
+                    <td><strong>Company Address:</strong></td>
+                    <td>The Zone Boulevard</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Rosebank Johannesburg</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>2196</td>
+                </tr>
+                <tr>
+                    <td><strong>PAYE Ref. No.:</strong></td>
+                    <td>7830717791</td>
+                </tr>
+                <tr>
+                    <td><strong>UIF Reg. No.:</strong></td>
+                    <td>0286681/2</td>
+                </tr>
+                <tr>
+                    <td><strong>Income Tax No.:</strong></td>
+                    <td>2846420145</td>
+                </tr>
+            </table>
+
+        </td>
+
+    </tr>
+</table>
+
+
+<table style="width:100%;" class="no-border">
+    <tr>
+        <td style="width:50%; vertical-align: top;">
+            <div class="section-title">Earnings</div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Description</th>
+                    <th class="right">Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${earnings}">
+                    <td th:text="${item.description}"></td>
+                    <td class="right" th:text="${#numbers.formatDecimal(item.amount,1,'COMMA',2,'POINT')}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+        <td style="width:50%; vertical-align: top;">
+            <div class="section-title">Deductions</div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Description</th>
+                    <th class="right">Amount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${deductions}">
+                    <td th:text="${item.description}"></td>
+                    <td class="right" th:text="${#numbers.formatDecimal(item.amount,1,'COMMA',2,'POINT')}"></td>
+                </tr>
+                <tr>
+                    <td>Total Deductions</td>
+                    <td class="right">45 485.36</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="section-title">Net Pay</div>
+            <div class="net-pay" th:text="${#numbers.formatDecimal(netPay,1,'COMMA',2,'POINT')}"></div>
+        </td>
+    </tr>
+</table>
+
+
+</body>
+
+</html>

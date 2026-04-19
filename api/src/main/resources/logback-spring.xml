@@ -1,0 +1,51 @@
+<configuration>
+
+    <!-- ================= CONSOLE (SAFE FALLBACK) ================= -->
+    <appender name="CONSOLE"
+              class="ch.qos.logback.core.ConsoleAppender">
+
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n
+            </pattern>
+        </encoder>
+
+    </appender>
+
+
+    <!-- ================= ELK ================= -->
+    <appender name="ELK"
+              class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+
+        <destination>localhost:5000</destination>
+
+        <!-- prevents startup failure -->
+        <reconnectionDelay>5000</reconnectionDelay>
+
+        <encoder
+                class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+
+            <providers>
+                <timestamp/>
+                <logLevel/>
+                <loggerName/>
+                <message/>
+                <mdc/>
+                <arguments/>
+                <globalCustomFields>{"application":"tax-service","index":"tax-service"}</globalCustomFields>
+            </providers>
+
+        </encoder>
+    </appender>
+
+    <appender name="ASYNC"
+              class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="ELK"/>
+    </appender>
+    <!-- ================= ROOT ================= -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ELK"/>
+    </root>
+
+</configuration>
