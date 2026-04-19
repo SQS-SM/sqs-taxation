@@ -28,8 +28,9 @@ public class OrganizationController {
 
     @Operation(
             summary = "Retrieve all organizations",
-            description = "Returns a list of all organizations"
-    )
+            description = "Returns a list of all organizations",
+            operationId = "organizationGetAll"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Organizations retrieved successfully"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
@@ -43,8 +44,9 @@ public class OrganizationController {
 
     @Operation(
             summary = "Get organization by ID",
-            description = "Retrieve organization details using the organization identifier"
-    )
+            description = "Retrieve organization details using the organization identifier",
+            operationId = "organizationGetById"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Organization retrieved successfully"),
             @ApiResponse(responseCode = "404", description = "Organization not found"),
@@ -63,8 +65,9 @@ public class OrganizationController {
 
     @Operation(
             summary = "Create organization",
-            description = "Creates a new organization"
-    )
+            description = "Creates a new organization",
+            operationId = "organizationCreate"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "201", description = "Organization created successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid organization data"),
@@ -83,8 +86,9 @@ public class OrganizationController {
 
     @Operation(
             summary = "Update organization",
-            description = "Updates an existing organization using the organization ID"
-    )
+            description = "Updates an existing organization using the organization ID",
+            operationId = "organizationUpdate"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Organization updated successfully"),
             @ApiResponse(responseCode = "404", description = "Organization not found"),
@@ -106,8 +110,9 @@ public class OrganizationController {
 
     @Operation(
             summary = "Delete organization",
-            description = "Deletes an organization using the organization ID"
-    )
+            description = "Deletes an organization using the organization ID",
+            operationId = "organizationDelete"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "204", description = "Organization deleted successfully"),
             @ApiResponse(responseCode = "404", description = "Organization not found"),

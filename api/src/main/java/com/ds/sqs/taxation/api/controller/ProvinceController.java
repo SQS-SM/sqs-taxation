@@ -27,8 +27,9 @@ public class ProvinceController {
 
     @Operation(
             summary = "Retrieve all provinces",
-            description = "Returns a list of all provinces available in the system"
-    )
+            description = "Returns a list of all provinces available in the system",
+            operationId = "provinceGetAll"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Provinces retrieved successfully"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
@@ -42,8 +43,9 @@ public class ProvinceController {
 
     @Operation(
             summary = "Get province by ID",
-            description = "Retrieve a province using its unique identifier"
-    )
+            description = "Retrieve a province using its unique identifier",
+            operationId = "provinceGetById"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Province retrieved successfully"),
             @ApiResponse(responseCode = "404", description = "Province not found"),
@@ -64,8 +66,9 @@ public class ProvinceController {
 
     @Operation(
             summary = "Retrieve provinces by country",
-            description = "Returns all provinces belonging to a specific country"
-    )
+            description = "Returns all provinces belonging to a specific country",
+            operationId = "provinceFindByCountry"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Provinces retrieved successfully"),
             @ApiResponse(responseCode = "404", description = "Country not found"),
@@ -84,8 +87,9 @@ public class ProvinceController {
 
     @Operation(
             summary = "Delete province",
-            description = "Deletes a province using the province identifier"
-    )
+            description = "Deletes a province using the province identifier",
+            operationId = "provinceDelete"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "204", description = "Province deleted successfully"),
             @ApiResponse(responseCode = "404", description = "Province not found"),

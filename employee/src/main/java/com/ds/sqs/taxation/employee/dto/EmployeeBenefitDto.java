@@ -1,5 +1,6 @@
 package com.ds.sqs.taxation.employee.dto;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -8,6 +9,7 @@ import java.util.UUID;
 @Data
 public class EmployeeBenefitDto {
 
+    @NotNull
     private Long id;
     private UUID guid;
     private Long companyId;

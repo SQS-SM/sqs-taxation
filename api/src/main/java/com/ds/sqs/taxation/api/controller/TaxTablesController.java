@@ -26,55 +26,55 @@ public class TaxTablesController {
     private final MedicalSchemeTaxCreditRatePersistencePort medicalSchemePort;
     private final BenefitPersistencePort benefitPort;
 
-    @Operation(summary = "List income taxes")
+    @Operation(summary = "List income taxes", operationId = "taxTablesGetIncomeTaxes")
     @GetMapping("/income-taxes")
     public ResponseEntity<List<IncomeTaxDto>> getIncomeTaxes() {
         return ResponseEntity.ok(incomeTaxPort.findAll());
     }
 
-    @Operation(summary = "List tax thresholds")
+    @Operation(summary = "List tax thresholds", operationId = "taxTablesGetTaxThresholds")
     @GetMapping("/tax-thresholds")
     public ResponseEntity<List<com.ds.sqs.taxation.payroll.dto.TaxThresholdDto>> getTaxThresholds() {
         return ResponseEntity.ok(taxThresholdPort.findAll());
     }
 
-    @Operation(summary = "List tax rebates")
+    @Operation(summary = "List tax rebates", operationId = "taxTablesGetTaxRebates")
     @GetMapping("/tax-rebates")
     public ResponseEntity<List<com.ds.sqs.taxation.payroll.dto.TaxRebateDto>> getTaxRebates() {
         return ResponseEntity.ok(taxRebatePort.findAll());
     }
 
-    @Operation(summary = "List pension funds")
+    @Operation(summary = "List pension funds", operationId = "taxTablesGetPensionFunds")
     @GetMapping("/pension-funds")
     public ResponseEntity<List<com.ds.sqs.taxation.payroll.dto.PensionFundDto>> getPensionFunds() {
         return ResponseEntity.ok(pensionFundPort.findAll());
     }
 
-    @Operation(summary = "List allowance types")
+    @Operation(summary = "List allowance types", operationId = "taxTablesGetAllowanceTypes")
     @GetMapping("/allowance-types")
     public ResponseEntity<List<com.ds.sqs.taxation.payroll.dto.AllowanceTypeDto>> getAllowanceTypes() {
         return ResponseEntity.ok(allowanceTypePort.findAll());
     }
 
-    @Operation(summary = "List allowance tax rates")
+    @Operation(summary = "List allowance tax rates", operationId = "taxTablesGetAllowanceTaxRates")
     @GetMapping("/allowance-tax-rates")
     public ResponseEntity<List<com.ds.sqs.taxation.payroll.dto.AllowanceTaxRateDto>> getAllowanceTaxRates() {
         return ResponseEntity.ok(allowanceTaxRatePort.findAll());
     }
 
-    @Operation(summary = "List UIF rates")
+    @Operation(summary = "List UIF rates", operationId = "taxTablesGetUifRates")
     @GetMapping("/uif")
     public ResponseEntity<List<com.ds.sqs.taxation.payroll.dto.UifDto>> getUifRates() {
         return ResponseEntity.ok(uifPort.findAll());
     }
 
-    @Operation(summary = "List medical scheme tax credits")
+    @Operation(summary = "List medical scheme tax credits", operationId = "taxTablesGetMedicalSchemeTaxCredits")
     @GetMapping("/medical-scheme-tax-credits")
     public ResponseEntity<List<com.ds.sqs.taxation.payroll.dto.MedicalSchemeTaxCreditRateDto>> getMedicalSchemeTaxCredits() {
         return ResponseEntity.ok(medicalSchemePort.findAll());
     }
 
-    @Operation(summary = "List benefits")
+    @Operation(summary = "List benefits", operationId = "taxTablesGetBenefits")
     @GetMapping("/benefits")
     public ResponseEntity<List<com.ds.sqs.taxation.payroll.dto.BenefitDto>> getBenefits() {
         return ResponseEntity.ok(benefitPort.findAll());

@@ -25,7 +25,9 @@ public class EmployeeController {
 
     @Operation(
             summary = "Retrieve employees",
-            description = "Returns a list of employees optionally filtered by companyId and organizationId")
+            description = "Returns a list of employees optionally filtered by companyId and organizationId",
+            operationId = "employeeGetAll"
+    )
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Employees retrieved successfully"),
     })
@@ -44,7 +46,8 @@ public class EmployeeController {
 
     @Operation(
             summary = "Get employee by ID",
-            description = "Retrieve a specific employee using the employee ID"
+            description = "Retrieve a specific employee using the employee ID",
+            operationId = "employeeGetById"
     )
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Employee retrieved successfully"),
@@ -63,8 +66,9 @@ public class EmployeeController {
 
     @Operation(
             summary = "Create employee",
-            description = "Creates a new employee record"
-    )
+            description = "Creates a new employee record",
+            operationId = "employeeCreate"
+)
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Employee created successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid employee data provided"),
@@ -82,8 +86,9 @@ public class EmployeeController {
 
     @Operation(
             summary = "Update employee",
-            description = "Updates an existing employee record using employee ID"
-    )
+            description = "Updates an existing employee record using employee ID",
+            operationId = "employeeUpdate"
+)
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Employee updated successfully"),
             @ApiResponse(responseCode = "404", description = "Employee not found"),
@@ -105,8 +110,9 @@ public class EmployeeController {
 
     @Operation(
             summary = "Delete employee",
-            description = "Deletes an employee record using employee ID"
-    )
+            description = "Deletes an employee record using employee ID",
+            operationId = "employeeDelete"
+)
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Employee deleted successfully"),
             @ApiResponse(responseCode = "404", description = "Employee not found"),

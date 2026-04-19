@@ -28,8 +28,9 @@ public class PdfController {
 
     @Operation(
             summary = "Generate payslip PDF",
-            description = "Generates a payslip document in PDF format for a sample employee"
-    )
+            description = "Generates a payslip document in PDF format for a sample employee",
+            operationId = "pdfGeneratePdf"
+)
     @ApiResponses({
             @ApiResponse(
                     responseCode = "200",

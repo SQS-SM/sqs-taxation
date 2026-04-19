@@ -29,8 +29,9 @@ public class CountryController {
 
     @Operation(
             summary = "Retrieve all countries",
-            description = "Returns a list of all countries available in the system"
-    )
+            description = "Returns a list of all countries available in the system",
+            operationId = "countryGetAll"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Countries retrieved successfully"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
@@ -44,8 +45,9 @@ public class CountryController {
 
     @Operation(
             summary = "Get country by ID",
-            description = "Retrieve a specific country using its unique identifier"
-    )
+            description = "Retrieve a specific country using its unique identifier",
+            operationId = "countryGetById"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Country retrieved successfully"),
             @ApiResponse(responseCode = "404", description = "Country not found"),

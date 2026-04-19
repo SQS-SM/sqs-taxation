@@ -28,8 +28,9 @@ public class CompanyController {
 
     @Operation(
             summary = "Retrieve companies",
-            description = "Returns all companies or filters companies by organizationId"
-    )
+            description = "Returns all companies or filters companies by organizationId",
+            operationId = "companyGetAll"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Companies retrieved successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid filter parameter"),
@@ -52,8 +53,9 @@ public class CompanyController {
 
     @Operation(
             summary = "Get company by ID",
-            description = "Retrieve company details using the company identifier"
-    )
+            description = "Retrieve company details using the company identifier",
+            operationId = "companyGetById"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Company retrieved successfully"),
             @ApiResponse(responseCode = "404", description = "Company not found"),
@@ -71,8 +73,9 @@ public class CompanyController {
 
     @Operation(
             summary = "Create company",
-            description = "Creates a new company record"
-    )
+            description = "Creates a new company record",
+            operationId = "companyCreate"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "201", description = "Company created successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid company data"),
@@ -89,8 +92,9 @@ public class CompanyController {
 
     @Operation(
             summary = "Update company",
-            description = "Updates an existing company using the company ID"
-    )
+            description = "Updates an existing company using the company ID",
+            operationId = "companyUpdate"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Company updated successfully"),
             @ApiResponse(responseCode = "404", description = "Company not found"),
@@ -112,8 +116,9 @@ public class CompanyController {
 
     @Operation(
             summary = "Delete company",
-            description = "Deletes a company using the company ID"
-    )
+            description = "Deletes a company using the company ID",
+            operationId = "companyDelete"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "204", description = "Company deleted successfully"),
             @ApiResponse(responseCode = "404", description = "Company not found"),

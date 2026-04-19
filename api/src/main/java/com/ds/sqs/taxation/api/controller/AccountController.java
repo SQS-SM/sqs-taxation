@@ -29,8 +29,9 @@ public class AccountController {
 
     @Operation(
             summary = "Retrieve accounts",
-            description = "Returns a list of accounts optionally filtered by companyId or organizationId"
-    )
+            description = "Returns a list of accounts optionally filtered by companyId or organizationId",
+            operationId = "accountGetAll"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Accounts retrieved successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid filter parameters"),
@@ -51,8 +52,9 @@ public class AccountController {
 
     @Operation(
             summary = "Get account by ID",
-            description = "Retrieve account details using account identifier"
-    )
+            description = "Retrieve account details using account identifier",
+            operationId = "accountGetById"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Account retrieved successfully"),
             @ApiResponse(responseCode = "404", description = "Account not found"),
@@ -70,7 +72,8 @@ public class AccountController {
 
     @Operation(
             summary = "Create account",
-            description = "Creates a new account record"
+            description = "Creates a new account record",
+            operationId = "createAccount"
     )
     @ApiResponses({
             @ApiResponse(responseCode = "201", description = "Account created successfully"),
@@ -85,8 +88,9 @@ public class AccountController {
 
     @Operation(
             summary = "Register new user",
-            description = "Registers a new user account with login credentials"
-    )
+            description = "Registers a new user account with login credentials",
+            operationId = "accountRegister"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "201", description = "User registered successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid registration data"),
@@ -100,8 +104,9 @@ public class AccountController {
 
     @Operation(
             summary = "User login",
-            description = "Authenticates a user and returns access and refresh tokens"
-    )
+            description = "Authenticates a user and returns access and refresh tokens",
+            operationId = "accountLogin"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Login successful"),
             @ApiResponse(responseCode = "401", description = "Invalid credentials"),
@@ -115,8 +120,9 @@ public class AccountController {
 
     @Operation(
             summary = "Refresh authentication token",
-            description = "Generates a new access token using a valid refresh token"
-    )
+            description = "Generates a new access token using a valid refresh token",
+            operationId = "accountRefreshToken"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Token refreshed successfully"),
             @ApiResponse(responseCode = "401", description = "Invalid refresh token"),
@@ -130,8 +136,9 @@ public class AccountController {
 
     @Operation(
             summary = "Change password",
-            description = "Allows authenticated users to change their password"
-    )
+            description = "Allows authenticated users to change their password",
+            operationId = "accountChangePassword"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Password changed successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid password request"),
@@ -148,8 +155,9 @@ public class AccountController {
 
     @Operation(
             summary = "Forgot password",
-            description = "Initiates password recovery process"
-    )
+            description = "Initiates password recovery process",
+            operationId = "accountForgotPassword"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Password recovery initiated"),
             @ApiResponse(responseCode = "400", description = "Invalid request"),
@@ -163,8 +171,9 @@ public class AccountController {
 
     @Operation(
             summary = "Reset password",
-            description = "Resets password using a valid reset token"
-    )
+            description = "Resets password using a valid reset token",
+            operationId = "accountResetPassword"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Password reset successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid reset request"),
@@ -181,8 +190,9 @@ public class AccountController {
 
     @Operation(
             summary = "Retrieve security identities",
-            description = "Returns security identity information based on provided criteria"
-    )
+            description = "Returns security identity information based on provided criteria",
+            operationId = "accountSecurityIdentities"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Security identities retrieved successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid request"),
@@ -196,8 +206,9 @@ public class AccountController {
 
     @Operation(
             summary = "Update account",
-            description = "Updates account information using account ID"
-    )
+            description = "Updates account information using account ID",
+            operationId = "accountUpdate"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Account updated successfully"),
             @ApiResponse(responseCode = "404", description = "Account not found"),
@@ -217,8 +228,9 @@ public class AccountController {
 
     @Operation(
             summary = "Delete account",
-            description = "Deletes an account by its identifier"
-    )
+            description = "Deletes an account by its identifier",
+            operationId = "accountDelete"
+)
     @ApiResponses({
             @ApiResponse(responseCode = "204", description = "Account deleted successfully"),
             @ApiResponse(responseCode = "404", description = "Account not found"),

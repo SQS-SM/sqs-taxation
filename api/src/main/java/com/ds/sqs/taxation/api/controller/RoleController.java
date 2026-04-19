@@ -18,13 +18,13 @@ public class RoleController {
 
     private final RolePersistencePort rolePort;
 
-    @Operation(summary = "List roles")
+    @Operation(summary = "List roles", operationId = "roleGetAll")
     @GetMapping
     public ResponseEntity<List<RoleDto>> getAll() {
         return ResponseEntity.ok(rolePort.findAll());
     }
 
-    @Operation(summary = "Get role by id")
+    @Operation(summary = "Get role by id", operationId = "roleGetById")
     @GetMapping("/{id}")
     public ResponseEntity<RoleDto> getById(@PathVariable("id") Long id) {
         return rolePort.findById(id)
